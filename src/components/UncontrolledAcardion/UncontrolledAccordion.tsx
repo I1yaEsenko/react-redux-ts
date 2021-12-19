@@ -8,8 +8,11 @@ function UncontrolledAccordion() {
     return (
         <div>
             <AccordionTitle title={'Checklist'}/>
-            <button onClick={ () => { setCollapsed(false)}}>Toggle</button>
-            {!collapsed && <AccordionBody />}
+            <button onClick={() => {
+                setCollapsed(!collapsed)
+            }}>Toggle
+            </button>
+            {!collapsed && <AccordionBody/>}
         </div>
 
     )
@@ -20,13 +23,13 @@ type AccordionTitlePropsType = {
     title: string
 }
 
-function AccordionTitle(props:AccordionTitlePropsType){
+function AccordionTitle(props: AccordionTitlePropsType) {
     return (
         <h3>{props.title}</h3>
     )
 }
 
-function AccordionBody(){
+function AccordionBody() {
     return (
         <ul>
             <li>1</li>
@@ -35,4 +38,5 @@ function AccordionBody(){
         </ul>
     );
 }
+
 export default UncontrolledAccordion;
