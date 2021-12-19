@@ -1,16 +1,29 @@
 import React from 'react';
 import './App.css';
-import Technologies from "./components/Technologies/Technologies";
-import Header from "./components/Header/Header";
+import Rating from "./components/Rating/Rating";
+import Accordion from "./components/Accordion/Accordion";
+import OnOff from "./components/OnOff/OnOff";
+import UncontrolledRating from "./components/UncontrolledRating/UncontrolledRating";
+import UncontrolledAccordion from "./components/UncontrolledAcardion/UncontrolledAccordion";
 
 function App() {
-  return (
-    <div>
-      <Header title={"This is a header"}/>
-      <Technologies value={"This is a menu"}/>
-    </div>
-  );
+    return (
+        <div>
+            <AppTitle title={'This is an Uncontrolled Rating'}/>
+            <UncontrolledRating />
+            <OnOff/>
+            <AppTitle title={'This is an Uncontrolled Accordion'}/>
+            <UncontrolledAccordion/>
+            <OnOff/>
+        </div>
+    );
 }
+
+
+function AppTitle(props: any) {
+    return <h3>{props.title}</h3>
+}
+
 
 export default App;
 
