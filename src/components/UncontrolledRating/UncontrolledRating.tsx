@@ -2,58 +2,26 @@ import React, {useState} from "react";
 
 function UncontrolledRating() {
 
-    let [rating, setRating] = useState(0)
-    const buttonRating = {
-        borderRadius: '50%',
-        border: '1px solid #c8c8c8',
-        marginRight: '5px',
-        marginBottom: '3px',
-        cursor: 'pointer',
-    }
+    let [rating, setRating] = useState(3)
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
     return (
         <div>
-            <Star selected={rating > 0}/>
-            <button style={buttonRating} onClick={() => {
-                setRating(1)
-            }}>1
-            </button>
-            <Star selected={rating > 1}/>
-            <button style={buttonRating} onClick={() => {
-                setRating(2)
-            }}>2
-            </button>
-            <Star selected={rating > 2}/>
-            <button style={buttonRating} onClick={() => {
-                setRating(3)
-            }}>3
-            </button>
-            <Star selected={rating > 3}/>
-            <button style={buttonRating} onClick={() => {
-                setRating(4)
-            }}>4
-            </button>
-            <Star selected={rating > 4}/>
-            <button style={buttonRating} onClick={() => {
-                setRating(5)
-            }}>5
-            </button>
+            <Star selected={rating > 0} setRating={() => setRating(1)} />
+            <Star selected={rating > 1} setRating={() => setRating(2)} />
+            <Star selected={rating > 2} setRating={() => setRating(3)} />
+            <Star selected={rating > 3} setRating={() => setRating(4)} />
+            <Star selected={rating > 4} setRating={() => setRating(5)} />
         </div>
     );
 }
-
 type StarPropsType = {
     selected: boolean
+    setRating: ()=> void
 }
-
 function Star(props: StarPropsType) {
-
-    if (props.selected === true) {
-        return <span><b>star</b> </span>
-    } else {
-        return <span>star </span>
-    }
-
+    return (
+        <span  onClick={ ()=> props.setRating()}>{ props.selected ? <span><b>star </b></span>: "star "} </span>
+    )
 }
-
 
 export default UncontrolledRating;
