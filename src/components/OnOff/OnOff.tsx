@@ -38,11 +38,20 @@ function OnOff(props:OnOffPropsType) {
         marginLeft: '5px',
         backgroundColor: props.value ? 'green' : 'red'
     }
+
+    const onClicked = () => {
+        props.changeState(!props.value)
+    }
+
+    const offClicked = () => {
+        props.changeState(!props.value)
+    }
+
     return (
         <div>
-            <div style={styleOn} onClick={() => {props.changeState(!props.value)}}>On
+            <div style={styleOn} onClick={onClicked}>On
             </div>
-            <div style={styleOff} onClick={() => {props.changeState(!props.value)}}>Off
+            <div style={styleOff} onClick={offClicked}>Off
             </div>
             <div style={styleIndicator}></div>
         </div>

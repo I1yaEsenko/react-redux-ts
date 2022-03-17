@@ -16,10 +16,9 @@ function App() {
         <div>
             <AppTitle title={'This is an Uncontrolled Rating'}/>
             <UncontrolledRating/>
-            <UncontrolledOnOff/>
             <AppTitle title={'This is an Uncontrolled Accordion'}/>
             <UncontrolledAccordion/>
-            <UncontrolledOnOff/>
+            <UncontrolledOnOff onChange={setOnOff}/> {onOff.toString()}
             <AppTitle title={'This is an Controlled Accordion'}/>
             <Accordion value={accordionCollapsed} collapsed={setAccordionCollapsed}/>
             <AppTitle title={'This is an Controlled Rating'}/>
